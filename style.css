@@ -251,8 +251,7 @@ span {
 .services-container .services-box {
     flex: 1 1 20rem;
     background: var(--snd-bf-color);
-    padding: 2rem 2rem 4rem;
-    padding: 30px 20px;
+    padding: 30px 5px;
     border-radius: 2rem;
     text-align: center;
     border: .2rem solid var(--bg-color);
@@ -269,13 +268,13 @@ span {
 }
 
 .services-box i {
-    font-size: 7rem;
+    font-size: 6rem;
     color: var(--main-color);
 }
 
 .services-box img {
     width: 7rem;
-    height: 7rem;
+    height: 5rem;
     color: var(--main-color);
 }
 
