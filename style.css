@@ -20,6 +20,7 @@
 }
 
 
+
 /* Yellow */
 /* :root {
     --bg-color: #1c1c1e;
@@ -38,6 +39,24 @@
 
 
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--snd-bf-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #169aff;
+}
 
 
 
@@ -55,6 +74,7 @@ body {
 section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
+    overflow: hidden;
 }
 
 /* Header */
@@ -63,7 +83,7 @@ section {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     padding: 2rem 9%;
     background: var(--bg-color);
     display: flex;
@@ -78,6 +98,10 @@ section {
     color: var(--text-color);
     font-weight: 700;
     cursor: default;
+}
+
+.logo span {
+    color: var(--main-color);
 }
 
 .navbar a {
@@ -102,10 +126,22 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
-.home-content {
-    padding-right: 70px;
+.home-left {
+    flex-basis: 60%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.home-left .home-content {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .home-content h3 {
@@ -127,9 +163,25 @@ span {
     line-height: 1.3;
 }
 
-.home-img img {
-    width: 23vw;
-    height: 48vh;
+.home-right {
+    flex-basis: 40%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-right .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+}
+
+.home-right .image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: 0 15%;
     border-radius: 50%;
@@ -173,6 +225,13 @@ span {
     background: var(--main-color);
     color: var(--snd-bf-color);
     box-shadow: 0 0 1rem var(--main-color);
+}
+
+.contact-resume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .btn {
@@ -251,7 +310,7 @@ span {
 .services-container .services-box {
     flex: 1 1 20rem;
     background: var(--snd-bf-color);
-    padding: 30px 5px;
+    padding: 20px 5px;
     border-radius: 2rem;
     text-align: center;
     border: .2rem solid var(--bg-color);
@@ -260,11 +319,13 @@ span {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: 0.5s ease;
 }
 
 .services-container .services-box:hover {
     border-color: var(--main-color);
     transform: scale(1.02);
+    box-shadow: 0 0 1rem var(--main-color);
 }
 
 .services-box i {
@@ -278,11 +339,16 @@ span {
     color: var(--main-color);
 }
 
+.services-box .express {
+    width: 6rem;
+    height: 6rem;
+}
+
 
 
 .services-box h3 {
     font-size: 2.6rem;
-    margin-top: 2.6rem;
+    margin-top: 2rem;
 }
 
 .services-box p {
@@ -303,13 +369,17 @@ span {
 }
 
 .portfolio-container {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 2.5rem;
+    padding: 10px;
 }
 
 .portfolio-container .portfolio-box {
+    width: 100%;
+    height: 280px;
     position: relative;
     border-radius: 2rem;
     box-shadow: 0 0 1rem var(--bg-color);
@@ -318,8 +388,8 @@ span {
 }
 
 .portfolio-box img {
-    width: 400px;
-    height: 280px;
+    width: 100%;
+    height: 100%;
     transition: .5s ease;
     opacity: 0.7;
     object-fit: cover;
@@ -470,7 +540,7 @@ span {
     }
 
     section {
-        padding: 10rem 3%;
+        padding: 10rem 4%;
     }
 
     .services {
@@ -517,6 +587,7 @@ span {
         margin: 3rem 0;
     }
 
+
     .home {
         flex-direction: column;
     }
@@ -525,17 +596,15 @@ span {
         font-size: 2.6rem;
     }
 
-
-
     .home-content h1 {
         font-size: 5rem;
     }
 
-    .home-content {
+    .home-left {
         order: 2;
     }
 
-    .home-img img {
+    .image img {
         width: 52vw;
         height: 38vh;
         margin-top: 4rem;
@@ -582,11 +651,11 @@ span {
         text-align: center;
     }
 
-    .home-img img {
+    /* .home-right .image img {
         width: 50vw;
         height: 35vh;
         margin-top: 8rem;
-    }
+    } */
 
     .about-img img {
         width: 50vw;
@@ -605,14 +674,14 @@ span {
         text-align: center;
     }
 
-    .home-img img {
-        width: 90vw;
-        height: 42vh;
+
+    .home-right .image img {
+        width: 80%;
+        height: 80%;
     }
 
     .about-img img {
-        width: 70vw;
-
+        width: 80vw;
     }
 
     .contact {
@@ -622,6 +691,8 @@ span {
     .contact form .input-box input {
         width: 100%;
     }
+
+
 }
 
 @media (max-width:379px) {
@@ -634,13 +705,13 @@ span {
         text-align: center;
     }
 
-    .home-img {
+    .home-right .image {
         margin-bottom: 2rem;
     }
 
-    .home-img img {
-        width: 90vw;
-        height: 43vh;
+    .home-right .image img {
+        width: 80%;
+        height: 80%;
     }
 
     .about-img img {
@@ -659,4 +730,20 @@ span {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+
+@media (max-width:340px) {
+
+    html {
+        font-size: 40%;
+    }
+
+    .home-right .image img {
+        width: 60%;
+        height: 60%;
+    }
+
+
+
 }
